@@ -9,15 +9,20 @@ import {
 import App from "./App.jsx";
 import "./index.css";
 import Default from "./layouts/Default.jsx";
-import Setting from "./pages/Setting.jsx";
+import Ticket from "./pages/Ticket.jsx";
+import Search from "./pages/Search.jsx";
+import Promotion from "./pages/Promotion.jsx";
+import Account from "./pages/Account.jsx";
 import Home from "./pages/Home.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Default />}>
-      <Route index element={<App />} />
-      <Route path='/home' element={<Home />} />
-      <Route path='/setting' element={<Setting />} />
+      <Route index element={<Home />} />
+      <Route path='/tickets' element={<Ticket />} />
+      <Route path='/search' element={<Search />} />
+      <Route path='/promotions' element={<Promotion />} />
+      <Route path='/account' element={<Account />} />
     </Route>
   )
 );
