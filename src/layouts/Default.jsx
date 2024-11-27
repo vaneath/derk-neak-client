@@ -7,16 +7,12 @@ const Default = () => {
   return (
     <>
       <div
+        className='h-40 min-w-full bg-cover bg-top sm:bg-center bg-no-repeat'
         style={{
-          minHeight: "100vh",
-          minWidth: "100vw",
           backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "fit",
-          backgroundPosition: "top",
-          backgroundRepeat: "no-repeat",
         }}
       >
-        <div className='mx-auto max-w-[375px] w-full'>
+        <div className='max-w-[375px] sm:max-w-5xl w-full mx-auto min-h-screen mb-16'>
           <Outlet />
         </div>
         <BottomNav />
