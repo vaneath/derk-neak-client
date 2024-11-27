@@ -1,15 +1,13 @@
 import React from "react";
 import { GrNext } from "react-icons/gr";
 
-const Section = ({ children }) => {
+const Section = ({ title, description, children }) => {
   return (
     <div className='section mt-6'>
       <div className='section-header flex justify-between items-center px-4'>
         <div>
-          <h3 className='font-bold text-base'>Popular Destinations</h3>
-          <p className='font-normal text-xs text-gray-600'>
-            Explore the popular destinations
-          </p>
+          <h3 className='font-bold text-base'>{title}</h3>
+          <p className='font-normal text-xs text-gray-600'>{description}</p>
         </div>
         <GrNext className='size-4' />
       </div>

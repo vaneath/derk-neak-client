@@ -6,7 +6,6 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import App from "./App.jsx";
 import "./index.css";
 import Default from "./layouts/Default.jsx";
 import Ticket from "./pages/Ticket.jsx";
@@ -16,15 +15,15 @@ import Account from "./pages/Account.jsx";
 import Home from "./pages/Home.jsx";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(
+  createRoutesFromElements([
     <Route element={<Default />}>
       <Route index element={<Home />} />
-      <Route path='/tickets' element={<Ticket />} />
-      <Route path='/search' element={<Search />} />
       <Route path='/promotions' element={<Promotion />} />
       <Route path='/account' element={<Account />} />
-    </Route>
-  )
+      <Route path='/tickets' element={<Ticket />} />,
+    </Route>,
+    <Route path='/search' element={<Search />} />,
+  ])
 );
 
 createRoot(document.getElementById("root")).render(
@@ -32,3 +31,9 @@ createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </StrictMode>
 );
+
+
+// If not login, redirect to login page
+// If login, redirect to home page
+
+// Get current user
