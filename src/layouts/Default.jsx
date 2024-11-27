@@ -12,7 +12,7 @@ const Default = () => {
           backgroundImage: `url(${backgroundImage})`,
         }}
       >
-        <div className='max-w-[375px] sm:max-w-5xl w-full mx-auto min-h-screen mb-16'>
+        <div className='sm:max-w-5xl w-full mx-auto min-h-screen mb-16'>
           <Outlet />
         </div>
         <BottomNav />
