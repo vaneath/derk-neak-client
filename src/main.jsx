@@ -15,6 +15,7 @@ import Account from "./pages/Account.jsx";
 import Home from "./pages/Home.jsx";
 import SearchResult from "./pages/SearchResult.jsx";
 import Seat from "./pages/Seat.jsx";
+import Booking from "./pages/Booking.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
       <Route path='results' element={<SearchResult />} />,
       <Route path='seats' element={<Seat />} />,
     </Route>,
+    <Route path='/booking' element={<Booking />} />,
   ])
 );
 

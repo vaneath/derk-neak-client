@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import steer from "../assets/steer.svg";
 import { NavLink } from "react-router-dom";
+import NavigationButton from "./NavigationButton";
 
 const SeatLayout = () => {
   const [selectedDeck, setSelectedDeck] = useState("LOWER");
@@ -108,12 +109,7 @@ const SeatLayout = () => {
         </div>
       </div>
 
-      <NavLink
-        className='mt-10 bg-primary text-white p-2 rounded-lg block text-center mx-4'
-        to='results'
-      >
-        Next
-      </NavLink>
+      <NavigationButton title='Next' to='/booking' />
     </div>
   );
 };
