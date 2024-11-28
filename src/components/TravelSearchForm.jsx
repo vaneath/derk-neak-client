@@ -11,7 +11,7 @@ const TravelSearchForm = () => {
         <div className='space-y-4'>
           {/* Current Location */}
           <div className='flex items-center space-x-2'>
-            <span className='text-orange-600 text-lg'>
+            <span className='text-orange text-lg'>
               <FaDotCircle />
             </span>
             <input
@@ -23,7 +23,7 @@ const TravelSearchForm = () => {
 
           {/* Destination */}
           <div className='flex items-center space-x-2'>
-            <span className='text-green-600 text-lg'>
+            <span className='text-green text-lg'>
               <FaLocationDot />
             </span>
             <input

@@ -13,6 +13,7 @@ import Search from "./pages/Search.jsx";
 import Promotion from "./pages/Promotion.jsx";
 import Account from "./pages/Account.jsx";
 import Home from "./pages/Home.jsx";
+import SearchResult from "./pages/SearchResult.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -22,7 +23,10 @@ const router = createBrowserRouter(
       <Route path='/account' element={<Account />} />
       <Route path='/tickets' element={<Ticket />} />,
     </Route>,
-    <Route path='/search' element={<Search />} />,
+    <Route path='/search'>
+      <Route index element={<Search />} />,
+      <Route path='results' element={<SearchResult />} />,
+    </Route>,
   ])
 );
 
@@ -31,7 +35,6 @@ createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </StrictMode>
 );
-
 
 // If not login, redirect to login page
 // If login, redirect to home page
