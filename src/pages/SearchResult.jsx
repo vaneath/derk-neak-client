@@ -9,7 +9,7 @@ const SearchResult = () => {
       <SearchResultHeader />
 
       {/* Search Results */}
-      <div className='px-4 space-y-4'>
+      <div className='flex flex-col px-4 space-y-4'>
         <SearchResultCard />
         <SearchResultCard />
       </div>
