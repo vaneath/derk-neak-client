@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaDotCircle } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 const TravelSearchForm = () => {
   const [passengers, setPassengers] = useState(1);
@@ -62,9 +63,12 @@ const TravelSearchForm = () => {
         </div>
       </div>
       {/* Search Button */}
-      <button className='w-full mt-10 bg-primary text-white p-2 rounded-lg'>
+      <NavLink
+        className='w-full mt-10 bg-primary text-white p-2 rounded-lg block text-center'
+        to='results'
+      >
         Search
-      </button>
+      </NavLink>
     </div>
   );
 };
