@@ -14,6 +14,7 @@ import Promotion from "./pages/Promotion.jsx";
 import Account from "./pages/Account.jsx";
 import Home from "./pages/Home.jsx";
 import SearchResult from "./pages/SearchResult.jsx";
+import Seat from "./pages/Seat.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
     <Route path='/search'>
       <Route index element={<Search />} />,
       <Route path='results' element={<SearchResult />} />,
+      <Route path='seats' element={<Seat />} />,
     </Route>,
   ])
 );
