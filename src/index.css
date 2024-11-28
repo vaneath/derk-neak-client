@@ -13,11 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #026AA2;
-  text-decoration: inherit;
-}
 a:hover {
   color: #c0c0c0;
 }
@@ -39,7 +34,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #026AA2;
+  border-color: #026aa2;
 }
 button:focus,
 button:focus-visible {
@@ -52,7 +47,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #026AA2;
+    color: #026aa2;
   }
   button {
     background-color: #f9f9f9;
