@@ -1,7 +1,7 @@
 import React from "react";
-import DestinationHeader from "../components/DestinationHeader";
-import SeatInfo from "../components/SeatInfo";
-import SeatLayout from "../components/SeatLayout";
+import DestinationHeader from "../components/shared/DestinationHeader";
+import SeatInfo from "../components/seat/SeatInfo";
+import SeatLayout from "../components/seat/SeatLayout";
 
 const Seat = () => {
   return (

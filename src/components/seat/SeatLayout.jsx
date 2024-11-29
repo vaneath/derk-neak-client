@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import steer from "../assets/steer.svg";
-import { NavLink } from "react-router-dom";
-import NavigationButton from "./NavigationButton";
+import steer from "./../../assets/steer.svg";
+import NavigationButton from "../shared/NavigationButton";
 
 const SeatLayout = () => {
   const [selectedDeck, setSelectedDeck] = useState("LOWER");

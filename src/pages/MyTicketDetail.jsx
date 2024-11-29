@@ -1,6 +1,6 @@
 import React from "react";
-import NavigationHeader from "../components/NavigationHeader";
-import MyTicketCard from "../components/MyTicketCard";
+import NavigationHeader from "../components/shared/NavigationHeader";
+import MyTicketCard from "../components/my-ticket/MyTicketCard";
 
 const MyTicketDetail = () => {
   return (

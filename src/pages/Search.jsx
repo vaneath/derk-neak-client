@@ -2,7 +2,7 @@ import React from "react";
 import TravelSearchForm from "../components/TravelSearchForm";
 import { IoIosArrowBack } from "react-icons/io";
 import { NavLink } from "react-router-dom";
-import NavigationHeader from "../components/NavigationHeader";
+import NavigationHeader from "../components/shared/NavigationHeader";
 
 const Search = () => {
   return (

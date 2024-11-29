@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import DestinationHeader from "../components/DestinationHeader";
+import DestinationHeader from "../components/shared/DestinationHeader";
 import bakongIcon from "../assets/bakong_icon.svg";
 import visaIcon from "../assets/visa_icon.svg";
 import cards from "../assets/cards.svg";
-import Divider from "../components/Divider";
-import PaymentNavigation from "../components/PaymentNavigation";
+import Divider from "../components/shared/Divider";
+import PaymentNavigation from "../components/payment/PaymentNavigation";
 import { IoCheckmarkCircle } from "react-icons/io5";
 
 const Payment = () => {

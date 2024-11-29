@@ -1,6 +1,6 @@
 import React from "react";
 import { IoCheckmarkCircle } from "react-icons/io5";
-import NavigationButton from "../components/NavigationButton";
+import NavigationButton from "../components/shared/NavigationButton";
 
 const BookingSuccess = () => {
   return (
