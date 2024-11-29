@@ -1,12 +1,12 @@
 import React from "react";
-import SearchResultHeader from "../components/SearchResultHeader";
+import DestinationHeader from "../components/DestinationHeader";
 import SeatInfo from "../components/SeatInfo";
 import SeatLayout from "../components/SeatLayout";
 
 const Seat = () => {
   return (
     <div>
-      <SearchResultHeader />
+      <DestinationHeader />
       <SeatInfo />
       <SeatLayout />
     </div>

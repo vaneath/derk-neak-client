@@ -16,6 +16,8 @@ import Home from "./pages/Home.jsx";
 import SearchResult from "./pages/SearchResult.jsx";
 import Seat from "./pages/Seat.jsx";
 import Booking from "./pages/Booking.jsx";
+import Payment from "./pages/Payment.jsx";
+import BookingSuccess from "./pages/BookingSuccess.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -30,7 +32,11 @@ const router = createBrowserRouter(
       <Route path='results' element={<SearchResult />} />,
       <Route path='seats' element={<Seat />} />,
     </Route>,
-    <Route path='/booking' element={<Booking />} />,
+    <Route path='/booking'>
+      <Route index element={<Booking />} />,
+      <Route path='payment' element={<Payment />} />,
+      <Route path='success' element={<BookingSuccess />} />
+    </Route>,
   ])
 );
 
