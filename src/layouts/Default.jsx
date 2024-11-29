@@ -15,8 +15,8 @@ const Default = () => {
         <div className='sm:max-w-5xl w-full mx-auto min-h-screen mb-32'>
           <Outlet />
         </div>
-        <BottomNav />
       </div>
+      <BottomNav />
     </>
   );
 };
