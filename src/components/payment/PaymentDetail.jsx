@@ -1,6 +1,6 @@
 import React from "react";
-import NavigationButton from "./NavigationButton";
-import Divider from "./Divider";
+import NavigationButton from "../shared/NavigationButton";
+import Divider from "../shared/Divider";
 
 const PaymentDetail = () => {
   return (

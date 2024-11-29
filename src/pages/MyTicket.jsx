@@ -1,8 +1,8 @@
 import React from "react";
-import MyTicketTile from "../components/MyTicketTile";
-import BottomNav from "../components/BottomNav";
-import NavigationHeader from "../components/NavigationHeader";
-import MyTicketFilter from "../components/MyTicketFilter";
+import MyTicketTile from "../components/my-ticket/MyTicketTile";
+import BottomNav from "../components/core/BottomNav";
+import NavigationHeader from "../components/shared/NavigationHeader";
+import MyTicketFilter from "../components/my-ticket/MyTicketFilter";
 
 const MyTicket = () => {
   return (

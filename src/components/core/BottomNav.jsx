@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 
 const BottomNav = () => {
   return (
-    <div className='mt-32'>
+    <div className='mt-40'>
       <div className='fixed bottom-0 z-50 w-full h-16 bg-white border-t border-gray-200'>
         <div className='relative flex justify-between sm:justify-evenly items-center mx-auto font-medium h-full px-4'>
           {/* Left Side Icons */}

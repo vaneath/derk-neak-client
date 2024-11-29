@@ -1,6 +1,6 @@
 import React from "react";
-import DestinationHeader from "../components/DestinationHeader";
-import SearchResultCard from "../components/SearchResultCard";
+import DestinationHeader from "../components/shared/DestinationHeader";
+import SearchResultCard from "../components/card/SearchResultCard";
 
 const SearchResult = () => {
   return (
