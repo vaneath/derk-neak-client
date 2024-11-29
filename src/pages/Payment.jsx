@@ -57,7 +57,7 @@ const Payment = () => {
           </div>
         </div>
       </div>
-      <PaymentNavigation text='Pay now' to='/payment' />
+      <PaymentNavigation text='Pay now' to='/booking/success' />
     </div>
   );
 };
