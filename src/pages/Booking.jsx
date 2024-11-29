@@ -2,7 +2,7 @@ import React from "react";
 import NavigationHeader from "../components/shared/NavigationHeader";
 import BookingInfoCard from "../components/card/BookingInfoCard";
 import SectionDivider from "../components/shared/SectionDivider";
-import CustomerInfo from "../components/CustomerInfo";
+import CustomerInfo from "../components/payment/CustomerInfo";
 import PaymentDetail from "../components/payment/PaymentDetail";
 
 const Booking = () => {

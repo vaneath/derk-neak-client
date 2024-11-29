@@ -8,9 +8,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Default from "./layouts/Default.jsx";
-import Ticket from "./pages/Ticket.jsx";
 import Search from "./pages/Search.jsx";
-import Promotion from "./pages/Promotion.jsx";
 import Account from "./pages/Account.jsx";
 import Home from "./pages/Home.jsx";
 import SearchResult from "./pages/SearchResult.jsx";
@@ -22,12 +20,13 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import MyTicket from "./pages/MyTicket.jsx";
 import MyTicketDetail from "./pages/MyTicketDetail.jsx";
+import BlogPage from "./pages/BlogPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
     <Route element={<Default />}>
       <Route index element={<Home />} />
-      <Route path='/promotions' element={<Promotion />} />
+      <Route path='/blogs' element={<BlogPage />} />
       <Route path='/account' element={<Account />} />
     </Route>,
     <Route path='/search'>

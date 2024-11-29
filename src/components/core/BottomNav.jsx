@@ -1,11 +1,11 @@
 import React from "react";
-import { CiDiscount1 } from "react-icons/ci";
 import { FaSearchLocation } from "react-icons/fa";
 import { GoHome } from "react-icons/go";
 import { HiOutlineTicket } from "react-icons/hi2";
 import { IoPersonOutline } from "react-icons/io5";
 import NavItem from "./NavItem";
 import { NavLink } from "react-router-dom";
+import { BiSolidBookContent } from "react-icons/bi";
 
 const BottomNav = () => {
   return (
@@ -36,7 +36,7 @@ const BottomNav = () => {
 
           {/* Right Side Icons */}
           <div className='flex justify-end sm:justify-evenly gap-8 grow'>
-            <NavItem to='/promotions' icon={CiDiscount1} label='Promo' />
+            <NavItem to='/blogs' icon={BiSolidBookContent} label='Blogs' />
             <NavItem to='/account' icon={IoPersonOutline} label='Account' />
           </div>
         </div>
