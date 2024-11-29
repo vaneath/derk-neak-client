@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/firebase"; // Import the auth object
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("User logged in successfully");
+    } catch (error) {
+      console.log(error);
+      alert("Error logging in: " + error.message);
+    }
+  };
+
   return (
     <div className='min-h-screen flex flex-col justify-center items-center bg-gray-50 px-4'>
       {/* Header */}
       <h1 className='text-2xl font-bold mb-6'>Login into account</h1>
 
       {/* Form */}
-      <form className='w-full max-w-sm space-y-4'>
+      <form className='w-full max-w-sm space-y-4' onSubmit={handleLogin}>
         <div>
           <label
             htmlFor='email'
@@ -22,6 +38,7 @@ const Login = () => {
             id='email'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary'
             placeholder='Enter your email'
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
@@ -36,16 +53,15 @@ const Login = () => {
             id='password'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary'
             placeholder='Enter your password'
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className='flex justify-between items-center bg-primary rounded-lg'>
-          <div
-            type='submit'
-            className='w-full bg-primay text-white py-2 rounded-lg font-semibold hover:opacity-90 transition text-center'
-          >
-            Login
-          </div>
-        </div>
+        <button
+          type='submit'
+          className='w-full bg-primary text-white py-2 rounded-lg font-semibold hover:opacity-90 transition text-center'
+        >
+          Login
+        </button>
       </form>
 
       {/* Forgot Password */}
