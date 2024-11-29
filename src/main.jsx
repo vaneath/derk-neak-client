@@ -18,6 +18,8 @@ import Seat from "./pages/Seat.jsx";
 import Booking from "./pages/Booking.jsx";
 import Payment from "./pages/Payment.jsx";
 import BookingSuccess from "./pages/BookingSuccess.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -37,6 +39,9 @@ const router = createBrowserRouter(
       <Route path='payment' element={<Payment />} />,
       <Route path='success' element={<BookingSuccess />} />
     </Route>,
+
+    <Route path='/login' element={<Login />} />,
+    <Route path='/register' element={<Register />} />,
   ])
 );
 
