@@ -3,7 +3,7 @@ import { FiEdit } from "react-icons/fi";
 
 const CustomerInfo = () => {
   return (
-    <div className='px-4'>
+    <div className='max-w-lg mx-auto px-4'>
       <h4 className='text-sm font-semibold'>Customer Information</h4>
       <div className='flex flex-col space-y-1 border border-gray-200 rounded-lg p-4 mt-4'>
         <div className='flex justify-between'>

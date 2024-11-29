@@ -109,7 +109,7 @@ const SeatLayout = () => {
         </div>
       </div>
 
-      <NavigationButton title='Next' to='/booking' />
+      <NavigationButton text='Next' to='/booking' />
     </div>
   );
 };

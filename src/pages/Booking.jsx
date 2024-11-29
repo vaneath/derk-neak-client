@@ -3,6 +3,7 @@ import NavigationHeader from "../components/NavigationHeader";
 import BookingInfoCard from "../components/BookingInfoCard";
 import SectionDivider from "../components/SectionDivider";
 import CustomerInfo from "../components/CustomerInfo";
+import PaymentDetail from "../components/PaymentDetail";
 
 const Booking = () => {
   return (
@@ -12,6 +13,7 @@ const Booking = () => {
       <SectionDivider />
       <CustomerInfo />
       <SectionDivider />
+      <PaymentDetail />
     </div>
   );
 };

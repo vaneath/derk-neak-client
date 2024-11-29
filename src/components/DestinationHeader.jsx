@@ -4,7 +4,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { VscSettings } from "react-icons/vsc";
 import { NavLink } from "react-router-dom";
 
-const SearchResultHeader = () => {
+const DestinationHeader = () => {
   return (
     <div className='border-b border-gray-200 mb-6'>
       <div className='flex items-center space-x-2 justify-between p-4'>
@@ -33,4 +33,4 @@ const SearchResultHeader = () => {
   );
 };
 
-export default SearchResultHeader;
+export default DestinationHeader;
