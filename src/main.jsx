@@ -21,6 +21,7 @@ import BookingSuccess from "./pages/BookingSuccess.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import MyTicket from "./pages/MyTicket.jsx";
+import MyTicketDetail from "./pages/MyTicketDetail.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -39,7 +40,10 @@ const router = createBrowserRouter(
       <Route path='payment' element={<Payment />} />,
       <Route path='success' element={<BookingSuccess />} />
     </Route>,
-    <Route path='/my-tickets' element={<MyTicket />} />,
+    <Route path='/my-tickets'>
+      <Route index element={<MyTicket />} />
+      <Route path=':id' element={<MyTicketDetail />} />
+    </Route>,
     <Route path='/login' element={<Login />} />,
     <Route path='/register' element={<Register />} />,
   ])
