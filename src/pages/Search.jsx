@@ -1,7 +1,5 @@
 import React from "react";
-import TravelSearchForm from "../components/TravelSearchForm";
-import { IoIosArrowBack } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import TravelSearchForm from "../components/shared/TravelSearchForm";
 import NavigationHeader from "../components/shared/NavigationHeader";
 
 const Search = () => {
