@@ -15,7 +15,11 @@ const BottomNav = () => {
           {/* Left Side Icons */}
           <div className='flex justify-start sm:justify-evenly gap-8 grow'>
             <NavItem to='/' icon={GoHome} label='Home' />
-            <NavItem to='/tickets' icon={HiOutlineTicket} label='My Ticket' />
+            <NavItem
+              to='/my-tickets'
+              icon={HiOutlineTicket}
+              label='My Ticket'
+            />
           </div>
 
           {/* Center Icon (Buy) */}
