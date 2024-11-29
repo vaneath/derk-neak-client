@@ -9,7 +9,6 @@ import {
 import "./index.css";
 import Default from "./layouts/Default.jsx";
 import Search from "./pages/Search.jsx";
-import Account from "./pages/Account.jsx";
 import Home from "./pages/Home.jsx";
 import SearchResult from "./pages/SearchResult.jsx";
 import Seat from "./pages/Seat.jsx";
@@ -21,13 +20,14 @@ import Register from "./pages/Register.jsx";
 import MyTicket from "./pages/MyTicket.jsx";
 import MyTicketDetail from "./pages/MyTicketDetail.jsx";
 import BlogPage from "./pages/BlogPage.jsx";
+import AccountPage from "./pages/AccountPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
     <Route element={<Default />}>
       <Route index element={<Home />} />
       <Route path='/blogs' element={<BlogPage />} />
-      <Route path='/account' element={<Account />} />
+      <Route path='/account' element={<AccountPage />} />
     </Route>,
     <Route path='/search'>
       <Route index element={<Search />} />,

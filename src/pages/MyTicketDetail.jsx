@@ -8,7 +8,7 @@ const MyTicketDetail = () => {
   return (
     <div>
       <NavigationHeader title='My Ticket Detail' to='/my-tickets' />
-      <div className='flex px-4 items-center justify-start space-x-4 overflow-x-auto'>
+      <div className='flex px-4 items-center justify-start space-x-4 overflow-x-scroll whitespace-nowrap'>
         {kohkong.items.map((ticket, index) => (
           <MyTicketCard ticket={ticket} />
         ))}
