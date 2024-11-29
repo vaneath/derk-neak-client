@@ -1,13 +1,40 @@
 import React, { useState } from "react";
 import steer from "./../../assets/steer.svg";
 import NavigationButton from "../shared/NavigationButton";
+import SeatColumn from "./SeatColumn";
+import SeatDeckToggle from "./SeatDeckToggle";
 
 const SeatLayout = () => {
   const [selectedDeck, setSelectedDeck] = useState("LOWER");
 
+  const [seatStates, setSeatStates] = useState({
+    LOWER: {
+      A: ["booked", "available", "available", "booked"],
+      B: ["available", "available", "booked", "booked"],
+      C: ["selected", "booked", "available", "available"],
+    },
+    UPPER: {
+      D: ["available", "available", "booked", "selected"],
+      E: ["booked", "booked", "available", "available"],
+    },
+  });
+
   const handleToggle = (deck) => {
     setSelectedDeck(deck);
   };
+
+  const handleSeatStateChange = (column, seatIndex, newState) => {
+    setSeatStates((prevState) => {
+      const updatedDeck = { ...prevState[selectedDeck] };
+      const updatedColumn = [...updatedDeck[column]];
+      updatedColumn[seatIndex] = newState;
+      updatedDeck[column] = updatedColumn;
+
+      return { ...prevState, [selectedDeck]: updatedDeck };
+    });
+  };
+
+  const currentDeckSeats = seatStates[selectedDeck];
 
   return (
     <div>
@@ -28,85 +55,24 @@ const SeatLayout = () => {
         </div>
 
         {/* Toggle Between Decks */}
-        {selectedDeck === "LOWER" && (
-          <div className='p-4 mt-8 relative lower-deck'>
-            <img src={steer} alt='steer' className='relative left-1/3' />
-            <div className='flex justify-center space-x-20'>
-              <div className='flex space-x-4'>
-                <div className='flex flex-col items-center space-y-4'>
-                  <p>A</p>
-                  <div className='size-10 rounded-md bg-secondary'></div>
-                  <div className='size-10 rounded-md bg-secondary'></div>
-                  <div className='size-10 rounded-md bg-secondary'></div>
-                  <div className='size-10 rounded-md bg-secondary'></div>
-                </div>
-                <div className='flex flex-col items-center space-y-4'>
-                  <p>B</p>
-                  <div className='size-10 rounded-md bg-secondary'></div>
-                  <div className='size-10 rounded-md bg-secondary'></div>
-                  <div className='size-10 rounded-md bg-secondary'></div>
-                  <div className='size-10 rounded-md bg-secondary'></div>
-                </div>
-              </div>
-              <div className='flex flex-col items-center space-y-4'>
-                <p>C</p>
-                <div className='size-10 rounded-md bg-secondary'></div>
-                <div className='size-10 rounded-md bg-secondary'></div>
-                <div className='size-10 rounded-md bg-secondary'></div>
-                <div className='size-10 rounded-md bg-secondary'></div>
-              </div>
-            </div>
+        <div className='p-4 mt-8 relative'>
+          <img src={steer} alt='steer' className='relative left-1/3' />
+          <div className='flex justify-center space-x-20'>
+            {Object.entries(currentDeckSeats).map(([label, states]) => (
+              <SeatColumn
+                key={label}
+                label={label}
+                seatCount={states.length}
+                seatStates={states}
+                onSeatStateChange={handleSeatStateChange}
+              />
+            ))}
           </div>
-        )}
-
-        {selectedDeck === "UPPER" && (
-          <div className='p-4 mt-8 relative upper-deck'>
-            <img src={steer} alt='steer' className='relative left-1/3' />
-            <div className='flex justify-center space-x-20'>
-              <div className='flex flex-col items-center space-y-4'>
-                <p>D</p>
-                <div className='size-10 rounded-md bg-secondary'></div>
-                <div className='size-10 rounded-md bg-secondary'></div>
-                <div className='size-10 rounded-md bg-secondary'></div>
-                <div className='size-10 rounded-md bg-secondary'></div>
-              </div>
-              <div className='flex flex-col items-center space-y-4'>
-                <p>E</p>
-                <div className='size-10 rounded-md bg-secondary'></div>
-                <div className='size-10 rounded-md bg-secondary'></div>
-                <div className='size-10 rounded-md bg-secondary'></div>
-                <div className='size-10 rounded-md bg-secondary'></div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Toggle Buttons */}
-      <div className='flex items-center justify-center mt-4'>
-        <div className='flex border border-gray-400 rounded-lg text-sm'>
-          <button
-            className={`px-4 py-1 ${
-              selectedDeck === "LOWER"
-                ? "bg-primary text-white"
-                : "bg-white text-primary"
-            } rounded-l-lg`}
-            onClick={() => handleToggle("LOWER")}
-          >
-            LOWER
-          </button>
-          <button
-            className={`px-4 py-1 ${
-              selectedDeck === "UPPER"
-                ? "bg-primary text-white"
-                : "bg-white text-primary"
-            } rounded-r-lg`}
-            onClick={() => handleToggle("UPPER")}
-          >
-            UPPER
-          </button>
         </div>
       </div>
+
+      {/* Toggle Component */}
+      <SeatDeckToggle selectedDeck={selectedDeck} onToggle={handleToggle} />
 
       <NavigationButton text='Next' to='/booking' />
     </div>
