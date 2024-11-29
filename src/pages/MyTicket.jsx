@@ -16,7 +16,7 @@ const MyTicket = () => {
         price='30.00'
         seats={2}
         station1='Phnom Penh'
-        station2='Siem Reap'
+        station2='Koh Kong'
         estTime='6h 30m'
       />
       <BottomNav />

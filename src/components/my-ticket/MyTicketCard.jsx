@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const MyTicketCard = () => {
+const MyTicketCard = ({ ticket }) => {
   const [showQR, setShowQR] = useState(true);
 
   return (
-    <div className='min-w-80 bg-white shadow-lg'>
-      {/* Image Section */}
+    <div className='w-80 bg-white shadow-lg'>
       <img
-        src='https://www.triplekangkor.com/wp-content/uploads/2023/08/Angkor-Wat.png' // Use the imported image
+        src={ticket.imageUrl}
         alt='Bus Destination'
         className='w-full h-48 object-cover rounded-t-xl'
       />
@@ -16,16 +15,18 @@ const MyTicketCard = () => {
       <div className='p-4'>
         <div className='grid grid-cols-2 text-sm text-black'>
           {/* Left Column for Labels */}
-          <div className='text-left'>
+          <div className='text-left flex flex-col space-y-2'>
             <p className='font-medium'>Date & Time</p>
             <p className='font-medium'>Destination</p>
             <p className='font-medium'>Ticket Type</p>
           </div>
           {/* Right Column for Values */}
-          <div className='text-right'>
-            <p>14 Nov 2024 | 7AM</p>
-            <p>Koh Kong</p>
-            <p>Normal</p>
+          <div className='text-right flex flex-col space-y-2'>
+            <p>
+              {ticket.date} | {ticket.time}
+            </p>
+            <p>{ticket.to}</p>
+            <p>{ticket.type}</p>
           </div>
         </div>
       </div>
@@ -36,7 +37,7 @@ const MyTicketCard = () => {
         <p className='text-sm text-gray-600 mb-2'>
           This QR code is for Individual check-in
         </p>
-        <p className='text-lg font-bold text-black'>Seat. A05</p>
+        <p className='text-lg font-bold text-black'>Seat. {ticket.seat}</p>
         <div className={`mx-auto mt-4 w-24 h-24 ${!showQR ? "blur-md" : ""}`}>
           <img
             src='https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg'
