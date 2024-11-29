@@ -1,15 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/firebase"; // Import the auth object
 
 const Register = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleCreateUser = async (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert("User created successfully");
+    } catch (error) {
+      console.log(error);
+      alert("Error creating user: " + error.message);
+    }
+  };
+
   return (
     <div className='min-h-screen flex flex-col justify-center items-center bg-gray-50 px-4'>
       {/* Header */}
-      <h1 className='text-2xl font-bold mb-6'> Register into account</h1>
+      <h1 className='text-2xl font-bold mb-6'>Register into account</h1>
 
       {/* Form */}
-      <form className='w-full max-w-sm space-y-4'>
+      <form className='w-full max-w-sm space-y-4' onSubmit={handleCreateUser}>
+        <div>
+          <label
+            htmlFor='name'
+            className='block text-sm font-medium text-gray-600'
+          >
+            Name
+          </label>
+          <input
+            type='text'
+            id='name'
+            name='name'
+            className='w-full mt-1 p-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary'
+            placeholder='Enter your name'
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
         <div>
           <label
             htmlFor='email'
@@ -20,8 +58,10 @@ const Register = () => {
           <input
             type='email'
             id='email'
+            name='email'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary'
             placeholder='Enter your email'
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
@@ -34,32 +74,34 @@ const Register = () => {
           <input
             type='password'
             id='password'
+            name='password'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary'
             placeholder='Enter your password'
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div>
           <label
-            htmlFor='password'
+            htmlFor='confirmPassword'
             className='block text-sm font-medium text-gray-600'
           >
             Confirm Password
           </label>
           <input
             type='password'
-            id='password'
+            id='confirmPassword'
+            name='confirmPassword'
             className='w-full mt-1 p-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary'
-            placeholder='Enter your confirm password'
+            placeholder='Confirm your password'
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-        <div className='flex justify-between items-center bg-primary rounded-lg'>
-          <div
-            type='submit'
-            className='w-full bg-primay text-white py-2 rounded-lg font-semibold hover:opacity-90 transition text-center'
-          >
-            Register
-          </div>
-        </div>
+        <button
+          type='submit'
+          className='w-full py-2 px-4 bg-primary text-white rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary'
+        >
+          Register
+        </button>
       </form>
 
       {/* Divider */}

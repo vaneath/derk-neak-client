@@ -24,10 +24,10 @@ import AccountPage from "./pages/AccountPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
+    <Route path='/account' element={<AccountPage />} />,
     <Route element={<Default />}>
       <Route index element={<Home />} />
       <Route path='/blogs' element={<BlogPage />} />
-      <Route path='/account' element={<AccountPage />} />
     </Route>,
     <Route path='/search'>
       <Route index element={<Search />} />,

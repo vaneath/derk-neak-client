@@ -6,6 +6,7 @@ import { FaBookOpen } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { MdContactSupport } from "react-icons/md";
 import { CgLogOut } from "react-icons/cg";
+import BottomNav from "../components/core/BottomNav";
 
 const AccountPage = () => {
   return (
@@ -27,6 +28,7 @@ const AccountPage = () => {
           label='Logout'
         />
       </div>
+      <BottomNav />
     </div>
   );
 };
