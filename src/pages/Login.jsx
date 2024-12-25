@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -18,6 +18,21 @@ const Login = () => {
       alert("Error logging in: " + error.message);
     }
   };
+
+  const handleGoogleLogin = async () => {
+    window.location.href = "http://localhost:3000/auth/google/login";
+  };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get("token");
+
+    if (token) {
+      localStorage.setItem("jwtToken", token);
+
+      window.location.href = "http://localhost:5173";
+    }
+  });
 
   return (
     <div className='min-h-screen flex flex-col justify-center items-center bg-gray-50 px-4'>
@@ -86,7 +101,10 @@ const Login = () => {
             Log in with Facebook
           </span>
         </div>
-        <div className='w-full flex items-center justify-center space-x-3 py-2 border rounded-lg hover:bg-gray-100 transition'>
+        <div
+          onClick={handleGoogleLogin}
+          className='w-full flex items-center justify-center space-x-3 py-2 border rounded-lg hover:bg-gray-100 transition'
+        >
           <FcGoogle className='text-lg' />
           <span className='font-medium text-gray-600'>Log in with Google</span>
         </div>
