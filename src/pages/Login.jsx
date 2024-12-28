@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../config/firebase"; // Import the auth object
+import useAuth from "../hooks/useAuth";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login, loading, error } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await login(email, password);
       alert("User logged in successfully");
-    } catch (error) {
-      console.log(error);
-      alert("Error logging in: " + error.message);
+      window.location.href = "/account";
+    } catch (err) {
+      console.error("Login failed:", err);
     }
   };
 
@@ -23,16 +24,16 @@ const Login = () => {
     window.location.href = "http://localhost:3000/auth/google/login";
   };
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get("token");
+  // useEffect(() => {
+  //   const urlParams = new URLSearchParams(window.location.search);
+  //   const token = urlParams.get("token");
 
-    if (token) {
-      localStorage.setItem("jwtToken", token);
+  //   if (token) {
+  //     localStorage.setItem("jwtToken", token);
 
-      window.location.href = "http://localhost:5173";
-    }
-  });
+  //     window.location.href = "http://localhost:5173";
+  //   }
+  // });
 
   return (
     <div className='min-h-screen flex flex-col justify-center items-center bg-gray-50 px-4'>
@@ -40,7 +41,7 @@ const Login = () => {
       <h1 className='text-2xl font-bold mb-6'>Login into account</h1>
 
       {/* Form */}
-      <form className='w-full max-w-sm space-y-4' onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className='w-full max-w-sm space-y-4'>
         <div>
           <label
             htmlFor='email'
@@ -74,9 +75,11 @@ const Login = () => {
         <button
           type='submit'
           className='w-full bg-primary text-white py-2 rounded-lg font-semibold hover:opacity-90 transition text-center'
+          disabled={loading}
         >
-          Login
+          {loading ? "Logging in..." : "Login"}
         </button>
+        {error && <p className='text-red-500 text-sm'>{error}</p>}
       </form>
 
       {/* Forgot Password */}

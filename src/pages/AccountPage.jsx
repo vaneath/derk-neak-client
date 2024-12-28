@@ -7,8 +7,23 @@ import { FaStar } from "react-icons/fa";
 import { MdContactSupport } from "react-icons/md";
 import { CgLogOut } from "react-icons/cg";
 import BottomNav from "../components/core/BottomNav";
+import useAuth from "../hooks/useAuth";
+import useIsLoggedIn from "../hooks/useIsLoggedIn";
 
 const AccountPage = () => {
+  const { logout, loading, error } = useAuth();
+  const isLoggedIn = useIsLoggedIn();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      alert("User logged out successfully");
+      window.location.href = "/login";
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
+  };
+
   return (
     <div>
       <AccountHeader />
@@ -21,12 +36,19 @@ const AccountPage = () => {
           icon={MdContactSupport}
           label='Customer support'
         />
-        <AccountTile
-          color='text-red-600'
-          to='/account'
-          icon={CgLogOut}
-          label='Logout'
-        />
+        {isLoggedIn && (
+          <div
+            className='flex justify-between items-center border-b border-gray-200 py-4'
+            onClick={handleLogout}
+          >
+            <div className='flex items-center space-x-4 text-red-600'>
+              <CgLogOut className='text-2xl' />
+              <span className='text-base'>Logout</span>
+              {loading && <span>Loading...</span>}
+              {error && <span>Error: {error}</span>}
+            </div>
+          </div>
+        )}
       </div>
       <BottomNav />
     </div>
