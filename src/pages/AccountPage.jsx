@@ -8,12 +8,9 @@ import { MdContactSupport } from "react-icons/md";
 import { CgLogOut } from "react-icons/cg";
 import BottomNav from "../components/core/BottomNav";
 import useAuth from "../hooks/useAuth";
-import useIsLoggedIn from "../hooks/useIsLoggedIn";
 
 const AccountPage = () => {
-  const { logout, loading, error } = useAuth();
-  const isLoggedIn = useIsLoggedIn();
-
+  const { logout, loading, error, isLoggedIn } = useAuth();
   const handleLogout = async () => {
     try {
       await logout();
