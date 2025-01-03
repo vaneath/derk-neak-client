@@ -8,19 +8,19 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Default from "./layouts/Default.jsx";
-import Search from "./pages/Search.jsx";
-import Home from "./pages/Home.jsx";
-import SearchResult from "./pages/SearchResult.jsx";
-import Seat from "./pages/Seat.jsx";
+import AccountPage from "./pages/AccountPage.jsx";
+import BlogPage from "./pages/BlogPage.jsx";
 import Booking from "./pages/Booking.jsx";
-import Payment from "./pages/Payment.jsx";
 import BookingSuccess from "./pages/BookingSuccess.jsx";
+import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
 import MyTicket from "./pages/MyTicket.jsx";
 import MyTicketDetail from "./pages/MyTicketDetail.jsx";
-import BlogPage from "./pages/BlogPage.jsx";
-import AccountPage from "./pages/AccountPage.jsx";
+import Payment from "./pages/Payment.jsx";
+import Register from "./pages/Register.jsx";
+import Search from "./pages/Search.jsx";
+import SearchResult from "./pages/SearchResult.tsx";
+import Seat from "./pages/Seat.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -48,8 +48,14 @@ const router = createBrowserRouter(
   ])
 );
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
-);
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  );
+} else {
+  throw new Error("Root element not found in the HTML.");
+}
